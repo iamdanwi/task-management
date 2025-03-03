@@ -5,19 +5,15 @@
 - Email/password-based authentication
 - JWT-based session management
 - Protected routes with authentication guards
-- Role-based access control (OWNER, ADMIN, MEMBER, VIEWER)
-- Custom permission system
 - Password hashing with bcrypt
 - Session persistence
 - Secure cookie handling
 
 ## Organization Management
 
-- Multi-tenant architecture
 - Organization creation and setup
 - Organization settings management
-- Organization member management
-- Organization-level permissions
+- Organization email integration for receving and sending email
 - Custom organization branding options
 - Organization statistics and analytics
 
@@ -86,17 +82,6 @@
 - Productivity metrics
 - Trend analysis
 
-## Real-time Features
-
-- Live notifications
-- Real-time updates
-- WebSocket integration
-- Activity tracking
-- Online status indicators
-- Collaborative features
-- Real-time chat (planned)
-- Live task updates
-
 ## UI/UX Features
 
 - Responsive design
@@ -116,12 +101,11 @@
 
 ## Technical Features
 
-- Next.js framework
+- Next.js framework frontend
 - TypeScript integration
+- React, Express for backend
 - PostgreSQL database
-- Prisma ORM
 - RESTful API
-- WebSocket support
 - Docker containerization
 - Environment configuration
 - Error boundary implementation
@@ -163,9 +147,8 @@
 - Email service integration
 - File storage integration
 - API endpoints for external integration
-- Webhook support (planned)
-- OAuth provider support (planned)
-- Calendar integration (planned)
+- Webhook support
+- Calendar integration
 - CI/CD pipeline
 
 ## Development Features
@@ -193,24 +176,5 @@
 - Monitoring
 - Backup systems
 - SSL/TLS support
-- Load balancing (planned)
-- Auto-scaling (planned)
-
-## Planned Features
-
-- Team chat
-- File attachments
-- Calendar integration
-- Mobile application
-- API documentation
-- Public API
-- Webhook system
-- Custom workflows
-- Time tracking
-- Kanban board view
-- Gantt chart view
-- Resource management
-- Budget tracking
-- Invoice generation
-- Client portal
-- Integration marketplace
+- Load balancing
+- Auto-scaling

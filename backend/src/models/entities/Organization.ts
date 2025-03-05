@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany, JoinColumn } from "typeorm";
 import { User } from "./User";
 
 export enum OrganizationType {
@@ -23,7 +23,8 @@ export class Organization {
     @Column({ nullable: true })
     description!: string;
 
-    @ManyToOne(() => User, user => user.organizations)
+    @ManyToOne(() => User, user => user.organizations, { eager: true })
+    @JoinColumn({ name: 'ownerId' })
     owner!: User;
 
     @Column()

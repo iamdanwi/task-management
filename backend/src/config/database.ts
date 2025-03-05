@@ -2,6 +2,7 @@ import { DataSource } from "typeorm";
 import { Project } from "../models/entities/Project";
 import { Task } from "../models/entities/Task";
 import { Organization } from "../models/entities/Organization";
+import { User } from "../models/entities/User";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -12,7 +13,7 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME || "task_management",
     synchronize: true,
     logging: false,
-    entities: [Project, Task, Organization],
+    entities: [Project, Task, Organization, User],
     migrations: [],
     subscribers: []
 });

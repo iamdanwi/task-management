@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { Organization } from './Organization';
 import crypto from 'crypto';
 
 export enum UserRole {
@@ -30,20 +31,20 @@ export class User {
     @Column({ default: false })
     isEmailVerified: boolean = false;
 
-    @Column({ nullable: true })
-    passwordResetToken: string | null = null;
+    @Column({ type: 'varchar', nullable: true })
+    passwordResetToken!: string | null;
 
     @Column({ type: 'timestamp', nullable: true })
-    passwordResetExpires: Date | null = null;
+    passwordResetExpires!: Date | null;
 
-    @Column({ nullable: true })
-    emailVerificationToken: string | null = null;
+    @Column({ type: 'varchar', nullable: true })
+    emailVerificationToken!: string | null;
 
     @Column({ type: 'timestamp', nullable: true })
-    emailVerificationExpires: Date | null = null;
+    emailVerificationExpires!: Date | null;
 
-    @Column('simple-array')
-    organizations: string[] = [];
+    @OneToMany(() => Organization, organization => organization.owner, { cascade: true })
+    organizations!: Organization[];
 
     @CreateDateColumn()
     createdAt!: Date;
@@ -62,7 +63,6 @@ export class User {
         this.passwordResetExpires = data?.passwordResetExpires || null;
         this.emailVerificationToken = data?.emailVerificationToken || null;
         this.emailVerificationExpires = data?.emailVerificationExpires || null;
-        this.organizations = data?.organizations || [];
         this.createdAt = data?.createdAt || new Date();
         this.updatedAt = data?.updatedAt || new Date();
     }
